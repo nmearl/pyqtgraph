@@ -21,7 +21,7 @@ class ErrorBarItem(GraphicsObject):
             left=None,
             right=None,
             beam=None,
-            pen=None
+            pen=getConfigOption('foreground')
         )
         self.setData(**opts)
 
@@ -137,7 +137,7 @@ class ErrorBarItem(GraphicsObject):
             self.drawPath()
         pen = self.opts['pen']
         if pen is None:
-            pen = getConfigOption('foreground')
+            pen = None
         p.setPen(fn.mkPen(pen))
         p.drawPath(self.path)
             
